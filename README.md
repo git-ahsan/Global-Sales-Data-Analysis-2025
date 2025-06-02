@@ -72,7 +72,7 @@ This approach is highly adaptable to real-world enterprise analytics in sectors 
 
 ## 📷 Dashboard Preview
 
-![Sales Dashboard Preview](images/dashboard.png)
+![Sales Dashboard Preview]([blob/main/Dashboard%20Preview.jpg])
 
 ---
 
