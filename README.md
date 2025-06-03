@@ -72,7 +72,7 @@ This approach is highly adaptable to real-world enterprise analytics in sectors 
 
 ## 📷 Dashboard Preview
 
-![Sales Dashboard Preview]([blob/main/Dashboard%20Preview.jpg])
+![Sales Dashboard Preview](https://github.com/git-ahsan/Global-Sales-Data-Analysis-2025/blob/main/Dashboard%20Preview.jpg)
 
 ---
 
