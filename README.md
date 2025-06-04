@@ -48,10 +48,16 @@ SELECT * FROM public."Sales US"
 
 ### 2. Data Exploration & Cleaning
 
+1. **Record Count**: Determine the total number of records in the dataset:
+```sql
+select count(*) from public." Global Sales Data"
+```
 - **Record Count**: Determine the total number of records in the dataset
 - **Category Count**: Identify all unique product categories in the dataset.
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 - **Handle missing values**: 1) Update NULL values in the "Quantity Purchased" column with the most common quantities for for the "Beauty" product category in Nigeria. 2) Update NULL values in the "Price Per Unit" column using the average "Price Per Unit" for the "Sports" product category in the US.
+- **Checking for duplicate values**: To ensure that each transaction has a unique ID, which is typically expected in clean, reliable sales data.
+
 
 ```sql
 select count(*) from public." Global Sales Data";
@@ -84,30 +90,32 @@ where "Country"= 'US' and "Category"='Sports' and "Price Per Unit" is not null
 )
 where "Transaction ID" = '001898f7-b696-4356-91dc-8f2b73d09c63';
 
+
+select "Transaction ID", count(*) from public."Global Sales Data"
+group by "Transaction ID"
+having count(*)>1;
+
 ```
 
 ### 3. Data Analysis & Findings
 
 The following SQL queries were developed to answer specific business questions:
 
-1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05**:
+1. **Write a SQL query to retrieve all columns for sales made on '2025-07-16**:
 ```sql
-SELECT *
-FROM retail_sales
-WHERE sale_date = '2022-11-05';
+select * from public."Global Sales Data"
+WHERE "Date" = '2025-07-16';
 ```
 
-2. **Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**:
+2. **Write a SQL query to retrieve all transactions where the category is 'Beauty' and the quantity sold is more than 5 in the month of July-2025**:
 ```sql
-SELECT 
-  *
-FROM retail_sales
-WHERE 
-    category = 'Clothing'
+select * from public."Global Sales Data"
+WHERE   
+	"Category" = 'Beauty'
     AND 
-    TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
+    TO_CHAR("Date", 'YYYY-MM') = '2025-07'
     AND
-    quantity >= 4
+    "Quantity Purchased" >= 5;
 ```
 
 3. **Write a SQL query to calculate the total sales (total_sale) for each category.**:
