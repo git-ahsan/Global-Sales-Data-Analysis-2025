@@ -22,17 +22,15 @@ To consolidate and analyze global sales data from six different countries using 
 - **Database Creation**: The project starts by creating a database named `Data Professionals`.
 - **Table Creation**: This repository outlines the process of consolidating sales data from multiple regional CSV files into a unified Global Sales Data table within a PostgreSQL database. This setup enables comprehensive analysis and reporting across all sales territories.
 The primary goal of this project is to centralize sales information, originally distributed across individual country-specific CSV files, into a single, easily queryable database table. This is achieved through a two-step process:
-- *Individual Table Creation & Import*: Each country's sales data is first imported into its own dedicated table in PostgreSQL.
-- *Global Data Consolidation*: All individual country tables are then merged into a master 'Global Sales Data' table.
+ **Individual Table Creation & Import**: Each country's sales data is first imported into its own dedicated table in PostgreSQL.
+ **Global Data Consolidation**: All individual country tables are then merged into a master 'Global Sales Data' table.
 
-The project utilizes sales data from the following CSV files: `sales_Canada.csv` `sales_China.csv` `sales_India.csv` `sales_Nigeria.csv` `sales_UK.csv` `sales_US.csv`
+The project utilizes sales data from the following CSV files: -`sales_Canada.csv` -`sales_China.csv` `sales_India.csv` `sales_Nigeria.csv` `sales_UK.csv` `sales_US.csv`
 
 For each of the aforementioned CSV datasets, a corresponding table was created in PostgreSQL's public schema. Each table shares the following standardized column structure to ensure data consistency: `Transaction ID` `Date` `Country` `Product ID` `Product Name` `Category` `Price Per Unit` `Quantity Purchased` `Cost Price` `Discount Applied` `Payment Method` `Customer Age Group` `Customer Gender` `Store Location` `Sales Representative`
 After table creation, the respective CSV data was imported into each table (e.g., Sales_Canada table populated from Sales_Canada.csv).
 
 A new table, Global Sales Data, was then created to merge all the individual country sales tables. This was accomplished using the UNION ALL SQL operator, which appends all rows from each country table into the new global table, preserving duplicates (as is typical for transactional data).
-
-![image](https://github.com/user-attachments/assets/67190cf9-ab61-42e5-88d6-fd9c405a72e0)
 
 The SQL query used for this consolidation is as follows:
 
