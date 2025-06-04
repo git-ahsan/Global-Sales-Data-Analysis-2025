@@ -50,25 +50,20 @@ SELECT * FROM public."Sales US"
 
 1. **Record Count**: Determine the total number of records in the dataset:
 ```sql
-select count(*) from public." Global Sales Data"
-```
-- **Record Count**: Determine the total number of records in the dataset
-- **Category Count**: Identify all unique product categories in the dataset.
-- **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
-- **Handle missing values**: 1) Update NULL values in the "Quantity Purchased" column with the most common quantities for for the "Beauty" product category in Nigeria. 2) Update NULL values in the "Price Per Unit" column using the average "Price Per Unit" for the "Sports" product category in the US.
-- **Checking for duplicate values**: To ensure that each transaction has a unique ID, which is typically expected in clean, reliable sales data.
-
-
-```sql
 select count(*) from public." Global Sales Data";
-
+```
+2. **Category Count**: Identify all unique product categories in the dataset:
+```sql
 SELECT DISTINCT "Category" from public." Global Sales Data";
-
+```
+3. **Null Value Check**: Check for any null values in the dataset and delete records with missing data:
+```sql
 select * from public." Global Sales Data"
 where 
 "Transaction ID" is null or "Date" is null or "Country" is null or "Product ID" is null or "Product Name" is null or "Category" is null or "Price Per Unit" is null or "Quantity Purchased" is null or "Cost Price" is null or "Discount Applied" is null or "Payment Method" is null or "Customer Age Group" is null or "Customer Gender" is null or "Store Location" is null or "Sales Representative" is null;
-
-
+```
+4. **Handle missing values**: i) Update NULL values in the "Quantity Purchased" column with the most common quantities for for the "Beauty" product category in Nigeria.
+```sql
 SELECT
     "Quantity Purchased", COUNT(*) AS frequency from public."Global Sales Data"
 WHERE "Country" = 'Nigeria' AND "Category" = 'Beauty'
@@ -81,20 +76,21 @@ limit 1;
 update public."Global Sales Data"
 set "Quantity Purchased" = 5
 where "Transaction ID" = '00a30472-89a0-4688-9d33-67ea8ccf7aea';
-
-
+```
+ii) Update NULL values in the "Price Per Unit" column using the average "Price Per Unit" for the "Sports" product category in the US.
+```sql
 update public."Global Sales Data"
 set "Price Per Unit" = (
     SELECT AVG("Price Per Unit") from public."Global Sales Data"
 where "Country"= 'US' and "Category"='Sports' and "Price Per Unit" is not null
 )
 where "Transaction ID" = '001898f7-b696-4356-91dc-8f2b73d09c63';
-
-
+```
+4. **Checking for duplicate values**: To ensure that each transaction has a unique ID, which is typically expected in clean, reliable sales data
+```sql
 select "Transaction ID", count(*) from public."Global Sales Data"
 group by "Transaction ID"
 having count(*)>1;
-
 ```
 
 ### 3. Data Analysis & Findings
