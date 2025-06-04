@@ -62,7 +62,7 @@ select * from public." Global Sales Data"
 where 
 "Transaction ID" is null or "Date" is null or "Country" is null or "Product ID" is null or "Product Name" is null or "Category" is null or "Price Per Unit" is null or "Quantity Purchased" is null or "Cost Price" is null or "Discount Applied" is null or "Payment Method" is null or "Customer Age Group" is null or "Customer Gender" is null or "Store Location" is null or "Sales Representative" is null;
 ```
-4. **Handle missing values**: i) Update NULL values in the "Quantity Purchased" column with the most common quantities for for the "Beauty" product category in Nigeria.
+4. **Handle Null values**: i) Update NULL values in the "Quantity Purchased" column with the most common quantities for for the "Beauty" product category in Nigeria.
 ```sql
 SELECT
     "Quantity Purchased", COUNT(*) AS frequency from public."Global Sales Data"
@@ -86,13 +86,36 @@ where "Country"= 'US' and "Category"='Sports' and "Price Per Unit" is not null
 )
 where "Transaction ID" = '001898f7-b696-4356-91dc-8f2b73d09c63';
 ```
-4. **Checking for duplicate values**: To ensure that each transaction has a unique ID, which is typically expected in clean, reliable sales data
+5. **Checking for duplicate values**: To ensure that each transaction has a unique ID, which is typically expected in clean, reliable sales data
 ```sql
 select "Transaction ID", count(*) from public."Global Sales Data"
 group by "Transaction ID"
 having count(*)>1;
 ```
+6. **Adding and Calculating Sales Revenue**: Add a Sales Revenue column and calculate its value for all records:
+```sql
+Alter table public."Global Sales Data"
+add column "Sales Revenue" Numeric(10,2);
 
+update public."Global Sales Data"
+set "Sales Revenue"=("Price Per Unit" * "Quantity Purchased") - "Discount Applied";
+```
+7. **Adding and Calculating Cost of Goods Sold(COGS)**: Add a Cost of Goods Sold column and calculate its value for all records:
+```sql
+Alter table public."Global Sales Data"
+add column "Cost of Goods Sold" Numeric(10,2);
+
+update public."Global Sales Data"
+set "Cost of Goods Sold"= "Price Per Unit" * "Quantity Purchased";
+```
+8. **Adding and Calculating Profit**: Add a Profit column and calculate its value for all records:
+```sql
+Alter table public."Global Sales Data"
+add column "Profit" Numeric(10,2);
+
+update public."Global Sales Data"
+set "Profit"= "Sales Revenue" - "Cost of Goods Sold";
+```
 ### 3. Data Analysis & Findings
 
 The following SQL queries were developed to answer specific business questions:
