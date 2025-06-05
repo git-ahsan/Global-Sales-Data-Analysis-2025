@@ -187,7 +187,7 @@ group by "Sales Representative"
 Order by "Total Score" Desc
 limit 10;
 ```
-8. **WWhich 10 store locations had the highest weighted performance scores (40% revenue + 60% profit) during February 2025?**:
+8. **Which 10 store locations had the highest weighted performance scores (40% revenue + 60% profit) during February 2025?**:
 ```sql
 select "Store Location",
 sum("Sales Revenue") as "Total Revenue",
