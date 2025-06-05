@@ -28,6 +28,7 @@ This project demonstrates an end-to-end data analytics workflow combining **Post
 
 **i) Individual Table Creation & Import**: 
 Created individual tables for each country (Canada, China, India, Nigeria, UK, US) with identical 15-column schemas before merging.
+
 **ii) Global Data Consolidation**: Combined all records into `Global Sales Data` using `UNION ALL` to preserve transactional integrity. The SQL query used for this consolidation is as follows:
 ```sql
 CREATE TABLE public."Global Sales Data" as
