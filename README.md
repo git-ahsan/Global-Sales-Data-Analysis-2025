@@ -215,7 +215,7 @@ select
 FROM public."Global Sales Data";
 ```
 ## 📊 Power BI Dashboard Overview
-📁 File: [Global Sales Trends Power BI Analysis](Global%20Sales%20Trends.sql)
+📁 File: [Global Sales Trends Power BI Analysis](https://github.com/git-ahsan/Global-Sales-Data-Analysis-2025/blob/main/Sales%20Data%20Dashboard.pbix)
 ### 📊 Power BI Measures
 - `Total Sales`, `Total Profit`, `Total Cost`, `Total Discount`
 - `Total Orders` and `Average Order Value`
@@ -223,16 +223,32 @@ FROM public."Global Sales Data";
 
 ---
 
-## 📈 Project Insights (from Dashboard)
+The dashboard contains multiple interactive views:
+- 🔹 **KPIs**: Total Sales, Profit, Orders, Discounts, AOV
+- 📈 **Sales Trends**: Monthly and daily breakdowns
+- 🌍 **Geo Analysis**: Revenue & profit by country and store
+- 🛍️ **Category/Product Insights**: Best-selling and underperforming products
+- 👤 **Customer Segments**: Age group, gender distribution
+- 💳 **Payment Methods**: Popular payment types
 
-- **Total Sales**: 4.14M | **Total Profit**: 958.74K  
-- **Top Country by Sales**: UK  
-- **Top Sales Day**: Monday  
-- **Top Payment Method**: Credit Card (34.24%)  
-- **Highest Sales Month**: December (0.52M)  
-- **Most Profitable Cities**: Birmingham, New York  
-- **Top-Selling Products & Sales Representative**: Identified via focused SQL queries
+> All measures (e.g., `Total Sales`, `Total Profit`, `Average Order Value`) were calculated using **DAX** inside Power BI.
 
+---
+
+## 🔑 Key Insights
+
+✅ Total Sales: 4.14M+  
+✅ Highest Profit Country: UK  
+✅ Most Orders by Age Group: 25–34  
+✅ Top Store Location: Birmingham  
+✅ Most Used Payment Method: Credit Card  
+✅ Peak Sales Month: December
+
+---
+
+## 📷 Dashboard Preview
+
+![Sales Dashboard Preview](https://github.com/git-ahsan/Global-Sales-Data-Analysis-2025/blob/main/Dashboard%20Preview.jpg)
 ---
 
 ## 🧠 Final Conclusion
@@ -245,27 +261,25 @@ This project demonstrates a full end-to-end analytics pipeline:
 This approach is highly adaptable to real-world enterprise analytics in sectors like retail, e-commerce, or supply chain.
 
 ---
+## 🚀 How to Run
 
-## 🛠️ Tools Used
-- PostgreSQL (for SQL queries and data transformation)
-- Power BI (for visualization and reporting)
-- Git & GitHub (for version control and collaboration)
-
----
-
-## 📷 Dashboard Preview
-
-![Sales Dashboard Preview](https://github.com/git-ahsan/Global-Sales-Data-Analysis-2025/blob/main/Dashboard%20Preview.jpg)
-
----
-
-## 📎 How to Run the Project
-1. Clone this repository
-2. Set up PostgreSQL and import the SQL scripts
-3. Open Power BI Desktop and connect to your database
-4. Load the data model and refresh visuals
+1. Open PostgreSQL and execute the queries from `Global Sales Trends.sql`
+2. Launch Power BI Desktop
+3. Open `Sales Data Dashboard.pbix` and refresh the data source
+4. Explore the interactive visuals
 
 ---
 
 ## 📬 Contact
-Feel free to reach out if you have any questions or collaboration ideas!
+
+**Md. Ahsan Ul Islam**  
+🎓 Junior Data Analyst | Aspiring BI Developer  
+🔗 [LinkedIn](https://www.linkedin.com/in/md-ahsan-ul-islam)  
+🔗 [GitHub](https://github.com/git-ahsan)
+
+---
+
+## 🏷️ Tags
+
+`#PowerBI` `#SQL` `#PostgreSQL` `#DataAnalysis` `#Dashboard` `#BusinessIntelligence` `
+
