@@ -153,7 +153,7 @@ FROM public."Global Sales Data"
 GROUP BY "Category", "Customer Gender"
 ORDER BY "Category";
 ```
-6. **What is the Total revenue, TotalC COGS, and Total profit for each country, sorted by Total profit for the month of January, 2025?**:
+6. **What is the Total revenue, Total COGS, and Total profit for each country, sorted by Total profit for the month of January, 2025?**:
 ```sql
 select "Country",
 	sum("Sales Revenue") as "Total Revenue", 
@@ -197,7 +197,7 @@ group by "Store Location"
 Order by "Total Score" Desc
 limit 10;
 ```
-10. **What are the key Sales Revenue, Cost of Goods Sold and Profit insights for the selected period?**:
+10. **What are the key Sales Revenue, Cost of Goods Sold and Profit insights?**:
 ```sql
 select
 	MIN("Sales Revenue") AS "Min Sales Value",
