@@ -20,9 +20,8 @@ This project demonstrates an end-to-end data analytics workflow combining **Post
 
 ---
 ## 🧮 SQL Process Overview
-
+[Global Sales Trends SQL Analysis](Global%20Sales%20Trends.sql)
 ### 1. Database Setup
-
 - **Database Creation**: The project starts by creating a database named `Data Professionals`.
 - **Table Creation**: Unified sales data from 6 country-specific CSV files into a single PostgreSQL table for holistic analysis. This is achieved through a two-step process:
 
@@ -215,7 +214,7 @@ select
 FROM public."Global Sales Data";
 ```
 ## 📊 Power BI Dashboard Overview
-📁 File: `Sales Data Dashboard.pbix`
+📁 File: [Global Sales Trends Power BI Analysis](Global%20Sales%20Trends.sql)
 ### 📊 Power BI Measures
 - `Total Sales`, `Total Profit`, `Total Cost`, `Total Discount`
 - `Total Orders` and `Average Order Value`
