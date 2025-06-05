@@ -281,5 +281,4 @@ This approach is highly adaptable to real-world enterprise analytics in sectors 
 
 ## 🏷️ Tags
 
-`#PowerBI` `#SQL` `#PostgreSQL` `#DataAnalysis` `#Dashboard` `#BusinessIntelligence` `
-
+`#PowerBI` `#SQL` `#PostgreSQL` `#DataAnalysis` `#Dashboard` `#BusinessIntelligence` `#GitHubPortfolio`
