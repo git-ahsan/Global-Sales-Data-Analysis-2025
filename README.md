@@ -136,105 +136,68 @@ WHERE
     AND
     "Quantity Purchased" >= 5;
 ```
-
-3. **Write a SQL query to calculate the total sales (total_sale) for each category.**:
+3. **Write a SQL query to calculate the Total_Sales for each category.**:
+```sql
+SELECT "Category", SUM("Sales Revenue") as "Total Sales" FROM public."Global Sales Data"
+GROUP BY "Category"
+order by "Total Sales" desc;
+```
+4. **Write a SQL query to find all transactions where the Sales Revenue is less than 500.**:
+```sql
+SELECT * FROM public."Global Sales Data"
+WHERE "Sales Revenue" < 500;
+```
+5. **How many transactions occurred for each product category, broken down by customer gender?**:
+```sql
+SELECT "Category", "Customer Gender", COUNT(*) as "Total_Transactions"
+FROM public."Global Sales Data"
+GROUP BY "Category", "Customer Gender"
+ORDER BY "Category";
+```
+6. **What is the Total revenue, TotalC COGS, and Total profit for each country, sorted by Total profit for the month of January, 2025?**:
+```sql
+select "Country",
+	sum("Sales Revenue") as "Total Revenue", 
+	sum("Cost of Goods Sold") as "Total COGS",
+	sum("Profit") as "Total Profit"
+from public."Global Sales Data"
+where "Date" between '2025-01-01' and '2025-01-31'
+group by "Country"
+order by "Total Profit";
+```
+7. **What are the top 5 best-selling products by total units sold in February 2025?**:
 ```sql
 SELECT 
-    category,
-    SUM(total_sale) as net_sale,
-    COUNT(*) as total_orders
-FROM retail_sales
-GROUP BY 1
+    "Product Name", 
+    SUM("Quantity Purchased") AS "Total Units Sold"
+FROM public."Global Sales Data"
+WHERE "Date" BETWEEN '2025-02-01' AND '2025-02-28'
+GROUP BY "Product Name"
+ORDER BY "Total Units Sold" DESC
+LIMIT 5;
 ```
-
-4. **Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.**:
+8. **Which top 10 Best Sales representatives generated the highest combined score (50% revenue + 50% profit) during February 2025?**:
 ```sql
-SELECT
-    ROUND(AVG(age), 2) as avg_age
-FROM retail_sales
-WHERE category = 'Beauty'
+select "Sales Representative",
+sum("Sales Revenue") as "Total Revenue",
+SUM("Profit") AS "Total Profit",
+(.5*sum("Sales Revenue")+.5*sum("Profit")) as "Total Score" from public."Global Sales Data"
+where "Date" between '2025-02-01' and '2025-02-28'
+group by "Sales Representative"
+Order by "Total Score" Desc
+limit 10;
 ```
-
-5. **Write a SQL query to find all transactions where the total_sale is greater than 1000.**:
+8. **WWhich 10 store locations had the highest weighted performance scores (40% revenue + 60% profit) during February 2025?**:
 ```sql
-SELECT * FROM retail_sales
-WHERE total_sale > 1000
+select "Store Location",
+sum("Sales Revenue") as "Total Revenue",
+SUM("Profit") AS "Total Profit",
+(.4*sum("Sales Revenue")+.6*sum("Profit")) as "Total Score" from public."Global Sales Data"
+where "Date" between '2025-02-01' and '2025-02-28'
+group by "Store Location"
+Order by "Total Score" Desc
+limit 10;
 ```
-
-6. **Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.**:
-```sql
-SELECT 
-    category,
-    gender,
-    COUNT(*) as total_trans
-FROM retail_sales
-GROUP 
-    BY 
-    category,
-    gender
-ORDER BY 1
-```
-
-7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
-```sql
-SELECT 
-       year,
-       month,
-    avg_sale
-FROM 
-(    
-SELECT 
-    EXTRACT(YEAR FROM sale_date) as year,
-    EXTRACT(MONTH FROM sale_date) as month,
-    AVG(total_sale) as avg_sale,
-    RANK() OVER(PARTITION BY EXTRACT(YEAR FROM sale_date) ORDER BY AVG(total_sale) DESC) as rank
-FROM retail_sales
-GROUP BY 1, 2
-) as t1
-WHERE rank = 1
-```
-
-8. **Write a SQL query to find the top 5 customers based on the highest total sales **:
-```sql
-SELECT 
-    customer_id,
-    SUM(total_sale) as total_sales
-FROM retail_sales
-GROUP BY 1
-ORDER BY 2 DESC
-LIMIT 5
-```
-
-9. **Write a SQL query to find the number of unique customers who purchased items from each category.**:
-```sql
-SELECT 
-    category,    
-    COUNT(DISTINCT customer_id) as cnt_unique_cs
-FROM retail_sales
-GROUP BY category
-```
-
-10. **Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17)**:
-```sql
-WITH hourly_sale
-AS
-(
-SELECT *,
-    CASE
-        WHEN EXTRACT(HOUR FROM sale_time) < 12 THEN 'Morning'
-        WHEN EXTRACT(HOUR FROM sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
-        ELSE 'Evening'
-    END as shift
-FROM retail_sales
-)
-SELECT 
-    shift,
-    COUNT(*) as total_orders    
-FROM hourly_sale
-GROUP BY shift
-```
-
-
 ### 📊 Power BI Measures
 - `Total Sales`, `Total Profit`, `Total Cost`, `Total Discount`
 - `Total Orders` and `Average Order Value`
