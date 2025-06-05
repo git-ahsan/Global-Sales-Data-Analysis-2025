@@ -1,36 +1,34 @@
 # 🛍️ Global Sales Dashboard Project (2025)
 
-## 📌 Project Objective
-To consolidate and analyze global sales data from six different countries using SQL for data processing and Power BI for interactive dashboard creation. The aim is to uncover actionable insights into sales performance, profit, customer behavior, and geographic trends.
+This project demonstrates an end-to-end data analytics workflow combining **PostgreSQL** and **Power BI** to analyze sales transactions across 6 countries: **Canada, China, India, Nigeria, UK, and US**. The goal is to uncover trends in revenue, profit, customer demographics, and product performance.
 
 ---
 
-## ❓ Key Business Questions (KPIs)
-- 📦 What is the total sales, cost, and profit?
-- 🌍 Which countries and store locations perform best?
-- 🧾 What is the average order value and total number of orders?
-- 💰 Which products and sales representative are top performers?
-- 💳 What are the preferred payment methods?
-- 📉 How do discounts affect profitability?
+## 📌 Project Objectives
+- Integrate and clean multi-country sales data
+- Enrich data with calculated KPIs like revenue, COGS, and profit
+- Analyze performance by country, category, product, store, and Sales rep
+- Visualize insights through an interactive Power BI dashboard
 
 ---
 
-## Project Structure
+## 🧰 Tools & Technologies
+- **Database**: PostgreSQL  
+- **Data Visualization**: Microsoft Power BI  
+- **Languages**: SQL, DAX  
+- **Version Control**: Git, GitHub
+
+---
+## 🧮 SQL Process Overview
 
 ### 1. Database Setup
 
 - **Database Creation**: The project starts by creating a database named `Data Professionals`.
-- **Table Creation**: This repository outlines the process of consolidating sales data from multiple regional CSV files into a unified Global Sales Data table within a PostgreSQL database. This setup enables comprehensive analysis and reporting across all sales territories.
-The primary goal of this project is to centralize sales information, originally distributed across individual country-specific CSV files, into a single, easily queryable database table. This is achieved through a two-step process:
+- **Table Creation**: Unified sales data from 6 country-specific CSV files into a single PostgreSQL table for holistic analysis. This is achieved through a two-step process:
 
-**i) Individual Table Creation & Import**: Each country's sales data is first imported into its own dedicated table in PostgreSQL. The project utilizes sales data from the following CSV files: -`sales_Canada.csv` -`sales_China.csv` -`sales_India.csv` -`sales_Nigeria.csv` -`sales_UK.csv` -`sales_US.csv`
-
-For each of the aforementioned CSV datasets, a corresponding table was created in PostgreSQL's public schema. Each table shares the following standardized column structure to ensure data consistency: -`Transaction ID` -`Date` -`Country` -`Product ID` -`Product Name` -`Category` -`Price Per Unit` -`Quantity Purchased` -`Cost Price` -`Discount Applied` -`Payment Method` -`Customer Age Group` -`Customer Gender` -`Store Location` -`Sales Representative`
-After table creation, the respective CSV data was imported into each table (e.g., Sales_Canada table populated from Sales_Canada.csv).
-
-**ii) Global Data Consolidation**: All individual country tables are then merged into a new master `Global Sales Data` table. This was accomplished using the UNION ALL SQL operator, which appends all rows from each country table into the new global table, preserving duplicates (as is typical for transactional data).
-The SQL query used for this consolidation is as follows:
-
+**i) Individual Table Creation & Import**: 
+Created individual tables for each country (Canada, China, India, Nigeria, UK, US) with identical 15-column schemas before merging.
+**ii) Global Data Consolidation**: Combined all records into `Global Sales Data` using `UNION ALL` to preserve transactional integrity. The SQL query used for this consolidation is as follows:
 ```sql
 CREATE TABLE public."Global Sales Data" as
 select * from public."Sales Canada"
@@ -187,7 +185,7 @@ group by "Sales Representative"
 Order by "Total Score" Desc
 limit 10;
 ```
-8. **Which 10 store locations had the highest weighted performance scores (40% revenue + 60% profit) during February 2025?**:
+9. **Which 10 Store locations had the highest weighted performance scores (40% revenue + 60% profit) during February 2025?**:
 ```sql
 select "Store Location",
 sum("Sales Revenue") as "Total Revenue",
@@ -198,6 +196,25 @@ group by "Store Location"
 Order by "Total Score" Desc
 limit 10;
 ```
+10. **What are the key Sales Revenue, Cost of Goods Sold and Profit insights for the selected period?**:
+```sql
+select
+	MIN("Sales Revenue") AS "Min Sales Value",
+    MAX("Sales Revenue") AS "Max Sales Value",
+    AVG("Sales Revenue") AS "Avg Sales Value",
+    SUM("Sales Revenue") AS "Total Sales Value",
+    MIN("Cost of Goods Sold") AS "Min COGS",
+    MAX("Cost of Goods Sold") AS "Max COGS",
+    AVG("Cost of Goods Sold") AS "Avg COGS",
+    SUM("Cost of Goods Sold") AS "Total COGS",
+	MIN("Profit") AS "Min Profit",
+    MAX("Profit") AS "Max Profit",
+    AVG("Profit") AS "Avg Profit",
+    SUM("Profit") AS "Total Profit"
+FROM public."Global Sales Data";
+```
+## 📊 Power BI Dashboard Overview
+📁 File: `Sales Data Dashboard.pbix`
 ### 📊 Power BI Measures
 - `Total Sales`, `Total Profit`, `Total Cost`, `Total Discount`
 - `Total Orders` and `Average Order Value`
