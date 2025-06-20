@@ -1,21 +1,24 @@
-# 🛍️ Global Sales Dashboard Project (2025)
+# 🛍️ Global Sales Analytics & Profitability Prediction (2025)
 
-This project demonstrates an end-to-end data analytics workflow combining **PostgreSQL** and **Power BI** to analyze sales transactions across 6 countries: **Canada, China, India, Nigeria, UK, and US**. The goal is to uncover trends in revenue, profit, customer demographics, and product performance.
+This project demonstrates a complete data science workflow—starting from SQL-based data extraction and Power BI dashboarding, to predictive modeling using Python. It analyzes global sales transactions across 6 countries: **Canada, China, India, Nigeria, UK, and US** to uncover key insights in revenue, profit, and product performance—and uses machine learning to predict profitability from product-level data.
 
 ---
 
 ## 📌 Project Objectives
-- Integrate and clean multi-country sales data
-- Enrich data with calculated KPIs like revenue, COGS, and profit
-- Analyze performance by country, category, product, store, and Sales rep
-- Visualize insights through an interactive Power BI dashboard
+✅ Integrate and clean multi-country sales data using SQL
+📊 Enrich data with KPIs like Revenue, COGS, and Profit
+🔍 Analyze performance by country, category, product, store, and sales rep
+📈 Visualize key insights through an interactive Power BI dashboard
+🤖 Predict product-level profitability using machine learning (Linear Regression)
+📦 Build a reproducible pipeline from raw data to business insight and prediction
 
 ---
 
 ## 🧰 Tools & Technologies
 - **Database**: PostgreSQL  
 - **Data Visualization**: Microsoft Power BI  
-- **Languages**: SQL, DAX  
+- **Languages**: SQL, DAX, Python
+- **Machine Learning**: Scikit-learn (Linear Regression), Pandas, Numpy, Matplotlib
 - **Version Control**: Git, GitHub
 
 ---
