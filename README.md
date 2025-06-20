@@ -282,8 +282,8 @@ Before modeling, the dataset was inspected for missing values.
 df.isnull().sum()
 ```
 
-### 3. 📐 Feature Engineering
-The dataset included precomputed business metrics, including:
+<details> <summary>📐 3. Feature Engineering</summary>
+No new code in this step. The dataset included precomputed business metrics, including:
 
 - **Sales Revenue:** (Quantity × Price) - Discount
 
