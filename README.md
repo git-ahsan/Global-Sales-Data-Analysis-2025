@@ -6,10 +6,15 @@ This project demonstrates a complete data science workflow—starting from SQL-b
 
 ## 📌 Project Objectives
 ✅ Integrate and clean multi-country sales data using SQL
+
 📊 Enrich data with KPIs like Revenue, COGS, and Profit
+
 🔍 Analyze performance by country, category, product, store, and sales rep
+
 📈 Visualize key insights through an interactive Power BI dashboard
+
 🤖 Predict product-level profitability using machine learning (Linear Regression)
+
 📦 Build a reproducible pipeline from raw data to business insight and prediction
 
 ---
