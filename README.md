@@ -275,7 +275,79 @@ df = df.drop(columns=["Transaction ID", "Date", "Product ID", "Product Name", "S
 df
 ```
 
+### 2. 🧹 Data Validation
+Before modeling, the dataset was inspected for missing values.
 
+```python
+df.isnull().sum()
+```
+
+### 3. 📐 Feature Engineering
+The dataset included precomputed business metrics, including:
+
+- **Sales Revenue:** (Quantity × Price) - Discount
+
+- **Cost of Goods Sold:** (Cost Price × Quantity)
+
+- **Profit (target variable):** Sales Revenue - COGS
+
+To prevent target leakage, features such as **Sales Revenue** and **COGS** were removed prior to modeling.
+
+### 4. 🔠 Label Encoding for Categorical Columns
+All categorical (object-type) columns were automatically identified and label encoded.
+
+```python
+from sklearn.preprocessing import LabelEncoder
+Encoder = LabelEncoder()
+Objncode = df.select_dtypes(include='object').columns
+for col in Objncode:
+    df[col] = Encoder.fit_transform(df[col])
+```
+
+### 📏 Feature Scaling
+The feature matrix (X) was scaled using StandardScaler, excluding the target variable (Profit).
+
+```python
+from sklearn.preprocessing import StandardScaler as stsc
+
+X = df.drop("Profit", axis=1)
+y = df["Profit"]
+
+scaler = stsc()
+X_scaled = scaler.fit_transform(X)
+X_scaled
+```
+
+### 6. 🧠 Model Training – Linear Regression
+Applied a Linear Regression model to predict Profit using an 75/25 train-test split.
+
+```python
+from sklearn.model_selection import train_test_split as tts
+from sklearn.linear_model import LinearRegression
+
+#Split the dataset
+X_train, X_test, y_train, y_test = tts(X_scaled, y, test_size=0.25, random_state=42)
+
+#Train Linear Regression model
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+```
+
+### 7. 📊 Model Evaluation
+Evaluated the model using R² Score and RMSE, measuring predictive accuracy and error.
+
+```python
+from sklearn.metrics import mean_squared_error, r2_score
+
+
+```
+
+### 2. 🧹 Data Validation
+Before modeling, the dataset was inspected for missing values.
+
+```python
+df.isnull().sum()
+```
 
 
 ## 🧠 Final Conclusion
