@@ -393,10 +393,14 @@ This hybrid approach demonstrates the power of combining traditional BI tools wi
 ---
 ## 🚀 How to Run
 
-1. Open PostgreSQL and execute the queries from `Global Sales Trends.sql`
-2. Launch Power BI Desktop
-3. Open `Sales Data Dashboard.pbix` and refresh the data source
-4. Explore the interactive visuals
+- 🔹 **Power BI Dashboard**:  
+  Run SQL queries from `Global Sales Trends.sql` in PostgreSQL → Open `Sales Data Dashboard.pbix` in Power BI → Refresh to load updated data.
+
+- 🔹 **Export for ML**:  
+  Export the processed data as `Global_Sales_Export.csv` from PostgreSQL.
+
+- 🔹 **Run ML Model**:  
+  Open `Profitability Prediction.ipynb` in Jupyter Notebook or VS Code → Ensure `Global_Sales_Export.csv` is present → Execute all cells to train and evaluate the model.
 
 ---
 
@@ -411,4 +415,4 @@ This hybrid approach demonstrates the power of combining traditional BI tools wi
 
 ## 🏷️ Tags
 
-`#PowerBI` `#SQL` `#PostgreSQL` `#DataAnalysis` `#Dashboard` `#BusinessIntelligence` `#GitHubPortfolio`
+`#PowerBI` `#SQL` `#PostgreSQL` `#DataAnalysis` `#Dashboard` `#BusinessIntelligence` `#MachineLearning` `#ProfitPrediction` `#Python` `#ScikitLearn` `#GitHubPortfolio`
