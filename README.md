@@ -259,6 +259,25 @@ The dashboard contains multiple interactive views:
 ![Sales Dashboard Preview](https://github.com/git-ahsan/Global-Sales-Data-Analysis-2025/blob/main/Dashboard%20Preview.jpg)
 ---
 
+## ⚙️ Machine Learning Workflow Steps
+This section outlines the full machine learning pipeline used for predicting profitability from cleaned sales data, including preprocessing, feature engineering, model training, and evaluation.
+
+### 1. 📥 Data Import & Initial Cleanup
+The dataset was loaded from a .csv file exported from the **PostgreSQL.** Redundant columns such as **Product ID** and **Product Name** were removed to retain only relevant numeric and categorical features.
+```python
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("C:/Users/hp/Downloads/Sales forc cus seg raw file.csv", encoding = 'unicode_escape')
+df
+
+df = df.drop(columns=["Transaction ID", "Date", "Product ID", "Product Name", "Sales Representative"])
+df
+```
+
+
+
+
 ## 🧠 Final Conclusion
 
 This project demonstrates a full end-to-end analytics pipeline:
