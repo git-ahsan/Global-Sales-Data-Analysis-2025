@@ -268,7 +268,7 @@ The dataset was loaded from a .csv file exported from the **PostgreSQL.** Redund
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv("C:/Users/hp/Downloads/Sales forc cus seg raw file.csv", encoding = 'unicode_escape')
+df = pd.read_csv("Global Sales Data.csv", encoding = 'unicode_escape')
 df
 
 df = df.drop(columns=["Transaction ID", "Date", "Product ID", "Product Name", "Sales Representative"])
