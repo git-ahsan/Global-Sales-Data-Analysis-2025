@@ -353,23 +353,25 @@ print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
 ```
 
 ### 8. 📈 Visualization & Correlation Analysis
-Visualized model prediction accuracy and explored feature relationships using advanced Seaborn plots with custom styling.
-
+Visualized model prediction accuracy and explored feature relationships using a combination of **Matplotlib** and **Seaborn**, with custom styling for enhanced readability and presentation.
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-#### 🔹 Actual vs Predicted Profit
+#### 🔹Actual vs Predicted Profit Visualization
 
-plt.figure(figsize=(8, 5))
-sns.scatterplot(x=y_test, y=y_pred)
-plt.xlabel("Actual Profit")
-plt.ylabel("Predicted Profit")
-plt.title("Actual vs Predicted Profit")
-plt.grid(True)
+plt.figure(figsize=(8, 5), facecolor="#AAF4CA")
+sns.scatterplot(x=y_test, y=y_pred, color="#8B008B", marker='s', s=80, alpha=0.7, edgecolor='yellow')
+plt.xlabel("Actual Profit", fontsize=12)
+plt.ylabel("Predicted Profit", fontsize=12)
+plt.title("Actual vs Predicted Profit", fontsize=14, fontweight='bold')
+plt.xticks(range(0, 2001, 200))
+plt.yticks(range(0, 2001, 200))
+plt.grid(True, linestyle=':', linewidth=0.7)
+plt.tight_layout()
 plt.show()
 
-#### 🔹 Feature Correlation Heatmap
+#### 🔹Feature Correlation Heatmap
 
 plt.figure(figsize=(12, 10), facecolor="#AADAF4")
 
