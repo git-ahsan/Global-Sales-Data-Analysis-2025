@@ -282,7 +282,7 @@ Before modeling, the dataset was inspected for missing values.
 df.isnull().sum()
 ```
 
-<details> <summary>📐 3. Feature Engineering</summary>
+### 3. 📐 Feature Engineering
 No new code in this step. The dataset included precomputed business metrics, including:
 
 - **Sales Revenue:** (Quantity × Price) - Discount
@@ -334,30 +334,61 @@ lr.fit(X_train, y_train)
 ```
 
 ### 7. 📊 Model Evaluation
-Evaluated the model using R² Score and RMSE, measuring predictive accuracy and error.
+Assessed the model's predictive performance using R² Score, Root Mean Squared Error (RMSE), and the model’s built-in .score() method. The evaluation started with generating predictions:
 
 ```python
-from sklearn.metrics import mean_squared_error, r2_score
+y_pred = lr.predict(X_test)
+```
+
+Then performance was measured using the following metrics:
+```python
+# Direct evaluation using model's internal score method (R²)
+print("Model Score (R²):", lr.score(X_test, y_test))
+
+# Manual evaluation
+print("R2 Score:", r2_score(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
 
 
 ```
 
-### 2. 🧹 Data Validation
-Before modeling, the dataset was inspected for missing values.
+### 8. 📈 Visualization & Correlation Analysis
+Visualized model performance (Actual vs Predicted plot) and inspected feature relationships using a correlation heatmap.
 
 ```python
-df.isnull().sum()
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Actual vs Predicted
+plt.figure(figsize=(8, 5))
+sns.scatterplot(x=y_test, y=y_pred)
+plt.xlabel("Actual Profit")
+plt.ylabel("Predicted Profit")
+plt.title("Actual vs Predicted Profit")
+plt.grid(True)
+plt.show()
+
+# Correlation Heatmap
+plt.figure(figsize=(10,8))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
+plt.title("Feature Correlation Heatmap")
+plt.show()
 ```
 
 
 ## 🧠 Final Conclusion
 
-This project demonstrates a full end-to-end analytics pipeline:
-- 📌 Clean, structured data via SQL
-- 📊 Dynamic, insightful visualization using Power BI
-- 🧩 Data-driven decision-making enabled through KPI tracking and geo-analysis
+This project delivers a complete, end-to-end data analytics and machine learning pipeline:
 
-This approach is highly adaptable to real-world enterprise analytics in sectors like retail, e-commerce, or supply chain.
+🧾 Clean and structured data extraction via PostgreSQL
+
+📊 Insightful business intelligence dashboards built in Power BI
+
+🤖 Machine learning model using Linear Regression to predict Profitability
+
+📈 Enables both exploratory analytics and predictive decision-making for real-world applications in retail, e-commerce, and supply chain
+
+This hybrid approach demonstrates the power of combining traditional BI tools with modern machine learning techniques.
 
 ---
 ## 🚀 How to Run
