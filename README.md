@@ -260,6 +260,8 @@ The dashboard contains multiple interactive views:
 ---
 
 ## ⚙️ Machine Learning Workflow Steps
+📁 File: [Global Sales Trends Power BI Analysis](https://github.com/git-ahsan/Global-Sales-Data-Analysis-2025/blob/main/Sales%20Data%20Dashboard.pbix)
+
 This section outlines the full machine learning pipeline used for predicting profitability from cleaned sales data, including preprocessing, feature engineering, model training, and evaluation.
 
 ### 1. 📥 Data Import & Initial Cleanup
@@ -417,17 +419,17 @@ This hybrid approach demonstrates the power of combining traditional BI tools wi
   Run SQL queries from `Global Sales Trends.sql` in PostgreSQL → Open `Sales Data Dashboard.pbix` in Power BI → Refresh to load updated data.
 
 - 🔹 **Export for ML**:  
-  Export the processed data as `Global_Sales_Export.csv` from PostgreSQL.
+  Export the processed data as `Global Sales Data.csv` from PostgreSQL.
 
 - 🔹 **Run ML Model**:  
-  Open `Profitability Prediction.ipynb` in Jupyter Notebook or VS Code → Ensure `Global_Sales_Export.csv` is present → Execute all cells to train and evaluate the model.
+  Open `Profitability Prediction.ipynb` in Jupyter Notebook or VS Code → Ensure `Global Sales Data.csv` is present → Execute all cells to train and evaluate the model.
 
 ---
 
 ## 📬 Contact
 
 **Md. Ahsan Ul Islam**  
-🎓 Junior Data Analyst | Aspiring BI Developer  
+🎓 Junior Data Analyst 
 🔗 [LinkedIn](https://www.linkedin.com/in/md-ahsan-ul-islam)  
 🔗 [GitHub](https://github.com/git-ahsan)
 
