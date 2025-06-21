@@ -23,7 +23,7 @@ This project demonstrates a complete data science workflow—starting from SQL-b
 - **Database**: PostgreSQL  
 - **Data Visualization**: Microsoft Power BI  
 - **Languages**: SQL, DAX, Python
-- **Machine Learning**: Scikit-learn (Linear Regression), Pandas, Numpy, Matplotlib
+- **Machine Learning**: Scikit-learn (Linear Regression), Pandas, Numpy, Matplotlib, Seaborn
 - **Version Control**: Git, GitHub
 
 ---
@@ -260,7 +260,7 @@ The dashboard contains multiple interactive views:
 ---
 
 ## ⚙️ Machine Learning Workflow Steps
-📁 File: [Global Sales Trends Power BI Analysis](https://github.com/git-ahsan/Global-Sales-Data-Analysis-2025/blob/main/Sales%20Data%20Dashboard.pbix)
+📁 File: [Profitability Prediction](https://github.com/git-ahsan/Global-Sales-Data-Analysis-2025/blob/main/Profitability%20Prediction.ipynb)
 
 This section outlines the full machine learning pipeline used for predicting profitability from cleaned sales data, including preprocessing, feature engineering, model training, and evaluation.
 
