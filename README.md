@@ -419,7 +419,7 @@ This hybrid approach demonstrates the power of combining traditional BI tools wi
   Run SQL queries from `Global Sales Trends.sql` in PostgreSQL → Open `Sales Data Dashboard.pbix` in Power BI → Refresh to load updated data.
 
 - 🔹 **Export for ML**:  
-  Export the processed data as `Global Sales Data.csv` from PostgreSQL.
+  Export the processed data as `Global Sales Data.csv` from PostgreSQL or download from [Here](https://github.com/git-ahsan/Global-Sales-Data-Analysis-2025/blob/main/Global%20Sales%20Data.csv)
 
 - 🔹 **Run ML Model**:  
   Open `Profitability Prediction.ipynb` in Jupyter Notebook or VS Code → Ensure `Global Sales Data.csv` is present → Execute all cells to train and evaluate the model.
@@ -429,7 +429,7 @@ This hybrid approach demonstrates the power of combining traditional BI tools wi
 ## 📬 Contact
 
 **Md. Ahsan Ul Islam**  
-🎓 Junior Data Analyst 
+🎓 Junior Data Analyst
 🔗 [LinkedIn](https://www.linkedin.com/in/md-ahsan-ul-islam)  
 🔗 [GitHub](https://github.com/git-ahsan)
 
