@@ -426,10 +426,10 @@ This hybrid approach demonstrates the power of combining traditional BI tools wi
 
 ---
 
-## 📬 Contact
+## 📬 Contact & Portfolio Links
 
 **Md. Ahsan Ul Islam**  
-🎓 Entry-Level Data Analyst | Skilled in Python, SQL & Power BI | Aspiring Data Scientist with Hands-On ML Project Experience
+🎓 Entry-Level Data Analyst | Skilled in Python, SQL & Power BI | Aspiring Data Scientist with Hands-On ML Project Experience  
 🔗 [LinkedIn](https://www.linkedin.com/in/md-ahsan-ul-islam)  
 🔗 [GitHub](https://github.com/git-ahsan)
 
